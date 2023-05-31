@@ -1,3 +1,4 @@
+const e = require("express");
 var usuarioModel = require("../models/usuarioModel");
 
 var sessoes = [];
@@ -33,7 +34,7 @@ function entrar(req, res) {
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
     } else {
-        
+
         usuarioModel.entrar(email, senha)
             .then(
                 function (resultado) {
@@ -57,10 +58,12 @@ function entrar(req, res) {
                 }
             );
     }
-
 }
 
-function cadastrar(req, res) {
+
+// function cadastrar(nome, sobrenome, email, senha);
+
+function verificarCadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
     var sobrenome = req.body.sobrenomeServer;
@@ -70,27 +73,37 @@ function cadastrar(req, res) {
     // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
-    } else if (sobrenome == undefined){
+    } else if (sobrenome == undefined) {
         res.status(400).send("Seu sobrenome está undefined");
-    }else if (email == undefined) {
+    } else if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
     } else {
-        
+
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, sobrenome, email, senha)
+        usuarioModel.verificarCadastrar(nome, sobrenome, email, senha)
             .then(
                 function (resultado) {
-                    res.json(resultado);
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length <= 0) {
+                        console.log(resultado);
+                        usuarioModel.cadastrar(nome, sobrenome, email, senha).then(
+                            function () {
+                                console.log(resultado);
+                                res.json(resultado);
+                            }
+                        );
+                    } else {
+                        res.status(403).send("Usuário ja existe");
+                    }
                 }
             ).catch(
                 function (erro) {
                     console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
                 }
             );
@@ -99,7 +112,7 @@ function cadastrar(req, res) {
 
 module.exports = {
     entrar,
-    cadastrar,
+    verificarCadastrar,
     listar,
     testar
 }

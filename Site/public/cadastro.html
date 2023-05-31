@@ -13,12 +13,18 @@
 <body>
     <div class="container">
         <div class="container-formulario">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <div id="mensagem_erro"></div>
+                </div>
+            </div>
             <div class="formulario">
                 <div class="form-header">
                     <div class="img-header">
                         <img src="img/red-hot-icon.png">
                     </div>
                     <h1> Cadastre-se e junte-se a nossa comunidade !!!</h1>
+                    <!-- cadastrar idade -->
                 </div>
                 <div class="form-body">
                     <div class="flex-input">
@@ -44,6 +50,8 @@
                 </div>
             </div>
         </div>
+        
+        <div id="div_erros_login"></div>
     </div>
 </body>
 </html>
@@ -59,10 +67,11 @@
         var emailVar = input_email.value;
         var senhaVar = input_senha.value;
         var confirmacaoSenhaVar = input_confirmar_senha.value;
-
+        
         if (nomeVar == "" || sobrenomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "") {
-            // cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            cardErro.style.display = "block"
+            mensagem_erro.style.display = 'flex'
+            mensagem_erro.innerHTML = `<span>É necessário preencher todos os campos!</span> <button onclick="sumirMensagem()"> Fechar </button>`;
 
             finalizarAguardar();
             return false;
@@ -91,17 +100,21 @@
 
             if (resposta.ok) {
                 cardErro.style.display = "block";
+                mensagem_erro.display = 'flex';
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                mensagem_erro.innerHTML = "<span>Cadastro realizado com sucesso! Redirecionando para tela de Login...</span>";
 
                 setTimeout(() => {
-                    window.location = "login.html";
+                    window.location = "./login.html";
                 }, "2000")
 
                 limparFormulario();
                 finalizarAguardar();
             } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
+                cardErro.style.display = "block";
+                mensagem_erro.display = 'flex';
+
+                mensagem_erro.innerHTML = "<span>Esse usuário já existe!</span>";
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
@@ -112,7 +125,7 @@
     }
 
     function sumirMensagem() {
-        // cardErro.style.display = "none"
+        cardErro.style.display = "none"
     }
 
 </script>

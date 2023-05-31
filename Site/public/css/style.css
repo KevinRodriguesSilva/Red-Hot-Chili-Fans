@@ -389,3 +389,67 @@ a:hover, button:hover{
     color: #D41D1D;
 }
 
+/* DISCOGRAFIA */
+
+.discografia {
+    background-color: black;
+    height: 130vh;
+    color: white;
+}
+
+.discografia .titulo{
+    height: 20%;
+}
+
+.container-discos{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.container-discografia{
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.sobre-disco{
+    width:50%;
+    background-color: black;
+}
+
+.discografia .container {
+    width: 100%;
+    height: 100%;
+} 
+
+.disco{
+    display: flex;
+    width: 100%;
+    height: 30%;
+    justify-content: space-around;
+}
+
+.disco img:hover{
+    transform: scale(1.2);
+    transition: transform  0.5s ease-in-out ;
+    cursor: pointer;
+    border: 5px solid #D41D1D;
+}
+
+.disco img{
+    width: 120px;
+    height: 120px;
+}
+
+.flex-discos{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* overflow-y: scroll; */
+    gap: 10px;
+}

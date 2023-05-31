@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="../js/animacao.js"></script>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/votos.css">
+    <title>Votar </title>
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="menu">
+            <div class="menu-button ativada" id="menu" onclick="movimentar()">
+                <div class="menu-traco"></div>
+                <div class="menu-traco"></div>
+                <div class="menu-traco"></div>
+            </div>
+            <div class="menu-button desativada" id="menu-desativado" onclick="movimentar()">
+                <div class="menu-traco"></div>
+                <div class="menu-traco"></div>
+                <div class="menu-traco"></div>
+            </div>
+        </div>
+        <div class="conteudo">
+            <a id="link1" class="link" href="dashboard.html">Votar</a>
+            <a id="link2" class="link" href="dashboard.html">Resultados</a>
+            <!-- <a id="link1" href="dashboard.html">Dashboard</a> -->
+        </div>
+    </div>
+    <div id="containerVotos" class="container-votos">
+        <h1> Vote nas músicas da lista!!</h1>
+        <div class="tabela-musica">
+            <div id="divPai"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+<script>
+
+    window.onload = obterMusica();
+
+    console.log(sessionStorage.ID_USUARIO);
+
+    
+    
+    function obterMusica (){
+        var musisca = [];
+
+        
+        fetch(`/votos/buscarMusicas`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(response.json)
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+
+            for (var i = 0; i < resposta.length; i++) {
+                musica.push(resposta[0]);
+                console.log(musica);
+            }
+
+        return listarMusica(musicas);
+    
+    }
+
+    function listarMusica(musicas){
+        musicas.forEach(musica => {
+            divPai.innerHTML += `
+            <span>${musica.nome}</span>
+            <button onclick="votar(${musica.id}, '${musica.nome}')" class="btn_votar"> Votar </button>`
+            console.log(musica.id)
+            console.log(musica.nome)
+        });
+    }
+
+</script>
+<script>
+
+    function votar(idMusica, nomeMusica, idAlbum) {
+        console.log('votei')
+        console.log(idMusica);
+        console.log(nomeMusica);
+        
+        var idMusicaVar = idMusica;
+        var nomeMusicaVar = nomeMusica;
+        var idAlbumVar = idAlbum
+
+
+        fetch(`/votos/votar:${sessionStorage.ID_USUARIO}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeMusicaServer: nomeMusicaVar,
+                idMusicaServer: idMusicaVar,
+                idAlbumServer: idAlbumVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+               console.log('funcionou')
+            } else {
+                console.log('erro')
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+
+</script>

@@ -149,3 +149,54 @@
     background-color: rgb(68, 21, 21);
     transform: scale(1.2);
 }
+
+#div_erros_login {
+    display: none
+  }
+  
+  .alerta_erro{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .card_erro {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(105, 4, 4, 0.952);
+    color: white;
+    width: 30%;
+    position: fixed;
+    border-radius: 10px;
+    padding: 15px;
+    z-index: 1;
+  }
+  
+  .card_erro #mensagem_erro{
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .card_erro #mensagem_erro button{
+    width:70px;
+    height: 40px;
+    font-size: 20px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+  }
+
+  .card_erro #mensagem_erro button:hover{
+    cursor: pointer;
+    background-color: rgb(194, 194, 194);
+    transform: scale(1.1);
+    transition: 0.3s;
+    font-weight: bold;
+  }
