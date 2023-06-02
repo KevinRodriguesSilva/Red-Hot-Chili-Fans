@@ -22,15 +22,18 @@ function buscarMusicas (req, res) {
 
 function votar(req, res){
     
-        idUsuario = sessionStorage.ID_USUARIO;
-        nomeMusica = req.body.nomeMusicaServer;
-        idMusica = req.body.idMusicaServer;
-        idAlbum = req.body.idAlbumServer;
+    var idMusica = req.body.idMusicaServer;
+    var idAlbum = req.body.idAlbumServer;
+    var idUsuario = req.body.idUsuarioServer;
+        // nomeMusica = req.body.nomeMusicaServer;
 
-        votosModel.votar().then(function (resultado){
-        res.status(200).json(resultado);
-        console.log('entrou no then da votar');
-    })
+        console.log(idUsuario, idAlbum, idMusica);
+
+        votosModel.votar(idMusica, idUsuario, idAlbum).then(function (resultado){
+            res.status(200).json(resultado);
+            // console.log(json(resultado));
+            console.log('entrou no then da votar');
+    });
 }
 
 module.exports = {

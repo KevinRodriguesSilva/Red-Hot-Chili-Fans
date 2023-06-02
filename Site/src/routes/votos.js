@@ -7,11 +7,11 @@ var votosController = require("../controllers/votosController");
 //     usuarioController.testar(req, res);
 // });
 
-router.get("/votos/votar:idUsuario", function (req, res) {
+router.post("/votar/:idUsuario", function (req, res) {
     votosController.votar(req, res);
 });
 
-router.get("/votos/buscarMusicas", function (req, res) {
+router.get("/buscarMusicas", function (req, res) {
     votosController.buscarMusicas(req, res);
 });
 

@@ -3,7 +3,7 @@ var database = require("../database/config")
 function buscarMusicas (){
     var instrucao = '';
 
-    var instrucao = 'SELECT * FROM musica ORDER BY nomeMusica;'
+    var instrucao = 'SELECT nome, idMusica, fkAlbum FROM musica ORDER BY nome;'
 
     return database.executar(instrucao);
 }

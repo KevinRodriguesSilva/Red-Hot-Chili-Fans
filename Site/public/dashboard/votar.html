@@ -49,17 +49,20 @@
 
     console.log(sessionStorage.ID_USUARIO);
 
-    
-    
-    function obterMusica (){
-        var musisca = [];
 
-        
+
+    function obterMusica() {
+        var listaMusica = [];
+
+
         fetch(`/votos/buscarMusicas`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
                     console.log(response.json)
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`); 7
+
+                    listaMusica = resposta;
+                    return listarMusica(listaMusica);
 
                 });
             } else {
@@ -69,24 +72,18 @@
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
-
-
-            for (var i = 0; i < resposta.length; i++) {
-                musica.push(resposta[0]);
-                console.log(musica);
-            }
-
-        return listarMusica(musicas);
-    
     }
 
-    function listarMusica(musicas){
-        musicas.forEach(musica => {
+
+    function listarMusica(listaMusicaParam) {
+
+        listaMusicaParam.forEach(musica => {
             divPai.innerHTML += `
             <span>${musica.nome}</span>
-            <button onclick="votar(${musica.id}, '${musica.nome}')" class="btn_votar"> Votar </button>`
-            console.log(musica.id)
+            <button onclick="votar(${musica.idMusica}, '${musica.nome}', ${musica.fkAlbum})" class="btn_votar"> Votar </button>`
+            console.log(musica.idMusica)
             console.log(musica.nome)
+            console.log(musica.fkAlbum);
         });
     }
 
@@ -97,13 +94,17 @@
         console.log('votei')
         console.log(idMusica);
         console.log(nomeMusica);
-        
+        console.log(idAlbum);
+
         var idMusicaVar = idMusica;
         var nomeMusicaVar = nomeMusica;
-        var idAlbumVar = idAlbum
+        var idAlbumVar = idAlbum;
+        var idUsuarioVar = Number(sessionStorage.ID_USUARIO);
+
+        console.log(idMusicaVar, nomeMusicaVar, idAlbumVar, idUsuarioVar)
 
 
-        fetch(`/votos/votar:${sessionStorage.ID_USUARIO}`, {
+        fetch(`/votos/votar/${sessionStorage.ID_USUARIO}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -111,16 +112,17 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
-                nomeMusicaServer: nomeMusicaVar,
+
                 idMusicaServer: idMusicaVar,
-                idAlbumServer: idAlbumVar
+                idAlbumServer: idAlbumVar,
+                idUsuarioServer: idUsuarioVar
             })
         }).then(function (resposta) {
 
             console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-               console.log('funcionou')
+                console.log('funcionou')
             } else {
                 console.log('erro')
             }

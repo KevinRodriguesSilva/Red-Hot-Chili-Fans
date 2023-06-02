@@ -41,7 +41,7 @@ CREATE TABLE voto (
 );
 
 INSERT INTO voto VALUES
-	(NULL, 2, 3, 1, NOW());
+	(NULL, 3, 3, 1, NOW());
     
     
 -- SELECT DE QUANTIDADE DE VOTOS
