@@ -25,10 +25,10 @@
                     <a href="#historia"> História da Banda</a>
                 </li>
                 <li>
-                    <a href="#"> Votação </a>
+                    <a href="#votos"> Votação </a>
                 </li>
                 <li>
-                    <a href="#">Sobre o criador</a>
+                    <a href="#sobre">Sobre o criador</a>
                 </li>
                 <li>
                     |
@@ -66,9 +66,40 @@
 
     <!-- HISTÓRIA -->
 
-    <div class="section historia" id="historia">
+    <div class="section origem" id="historia">
         <div class="titulo">
-            <h1>História da banda</h1>
+            <h1>Origem da banda</h1>
+        </div>
+        <div class="container-origem">
+            <div class="banner-origem">
+                <img src="img/origem-rhcp.jpg" alt="" srcset="">
+            </div>
+            <span class="text-origem">
+                O Red Hot Chili Peppers tem raízes desde 1979, nos intervalos entre aulas da Fairfax High School, em
+                Hollywood, Los Angeles. Os garotos de 15 anos, Flea, Hillel Slovak e Jack Irons eram três amigos que
+                tinham algumas ambições musicais formando a banda chamada Anthym. Um dos grandes admiradores dessa banda
+                era Anthony Kiedis, também amigo de infância de Flea, Hillel e Irons.
+
+                Em dezembro de 1982, a banda Gary and Neighbour's Voices iria tocar no clube Rhythm Lounge em Los
+                Angeles e o vocalista Gary Allen sugeriu que Anthony Kiedis, juntamente com Flea e Hillel Slovak,
+                realizassem a abertura do show para banda. Eles então fundaram uma banda chama "Tony Flow e os
+                Miraculous Masters of Mayhem", porque de acordo com Anthony: "era assim que queríamos tocar, majestoso e
+                caótico". Eles adicionaram Jack Irons na bateria. A banda tocou para um público de 30 pessoas e a
+                apresentação envolveu com uma improvisando enquanto Kiedis cantava rap de um poema que ele havia
+                escrito, chamado "Out in LA". Slovak e Irons já estavam comprometidos com outro grupo, What Is
+                This?, que se destinava a ser uma performance única. No entanto, o desempenho foi tão animado que a
+                banda foi convidada a voltar na semana seguinte. Eles estão escreveram mais uma música chamada "Get
+                Up and Jump”, baseado na relação de Hillel com uma garota chamada Rona Frumpkin e depois, devido ao
+                sucesso inesperado, a banda mudou seu nome para The Red Hot Chili Peppers, escrevendo mais músicas para
+                seu repertório e tocando em vários shows nos clubes de Los Angeles. A explicação para o nome vem de um
+                improviso de Anthony Kiedis que conta: "Eu estava caminhando em Hollywood Hills e vi esse nome piscando
+                num arbusto psicodélico" (o arbusto era em formato de pimenta), mas essa história parece muito mais uma
+                lenda ou piada de Anthony, do que a verdadeira história. O que parece ser mais próximo da realidade é
+                que eles adoravam comida mexicana com bastante pimenta (chili), Flea era fã da banda de apoio de Louis
+                Armstrong "Red Hot Peppers" e Anthony Kiedis não poderia esquecer o nome da banda que tocou num pub em
+                Londres, a "Chili Willy and the Red Hot Peppers". Seis canções desses shows iniciais foram na fita da
+                banda primeira demo, que os tornaram famosos.
+            </span>
         </div>
     </div>
 
@@ -343,7 +374,7 @@
 
     <!-- DISCOGRAFIA -->
 
-    <div class="section discografia">
+    <div class="section discografia" id="disco">
         <div class="container">
             <div class="titulo">
                 <h1>Discografia</h1>
@@ -352,40 +383,81 @@
             <div class="container-discografia">
                 <div class="flex-discos">
                     <div class="scroll-album">
-                        <img id="album1" src="img/theredhot.jpg" onclick="descricao()">
-                        <img id="album2" src="img/51JiRzjRiXL._AC_SX466_.jpg">
-                        <img id="album3" src="img/morfopartyplan.jpg">
-                        <img id="album4" src="img/mothersjpg.jpg">
-                        <img id="album5" src="img/bssm.jpg">
-                        <img id="album6" src="img/hotminute.jpg">
-                        <img id="album7" src="img/californication.jpg">
-                        <img id="album8" src="img/bytheway.jpg">
-                        <img id="album9" src="img/stadium.jpg">
-                        <img id="album10" src="img/imwithyou.jpg">
-                        <img id="album11" src="img/The_Getaway.jpg">
-                        <img id="album12" src="img/unlimitedlove.png">
-                        <img id="album13" src="img/dreamcanteen.jpg" alt="" srcset="">
+                        <img id="album1" src="img/theredhot.jpg" onclick="descricao(id)">
+                        <img id="album2" src="img/51JiRzjRiXL._AC_SX466_.jpg" onclick="descricao(id)">
+                        <img id="album3" src="img/morfopartyplan.jpg" onclick="descricao(id)">
+                        <img id="album4" src="img/mothersjpg.jpg" onclick="descricao(id)">
+                        <img id="album5" src="img/bssm.jpg" onclick="descricao(id)">
+                        <img id="album6" src="img/hotminute.jpg" onclick="descricao(id)">
+                        <img id="album7" src="img/californication.jpg" onclick="descricao(id)">
+                        <img id="album8" src="img/bytheway.jpg" onclick="descricao(id)">
+                        <img id="album9" src="img/stadium.jpg" onclick="descricao(id)">
+                        <img id="album10" src="img/imwithyou.jpg" onclick="descricao(id)">
+                        <img id="album11" src="img/The_Getaway.jpg" onclick="descricao(id)">
+                        <img id="album12" src="img/unlimitedlove.png" onclick="descricao(id)">
+                        <img id="album13" src="img/dreamcanteen.jpg" onclick="descricao(id)">
                     </div>
                 </div>
+                <H1 id="tituloDisco"></H1>
                 <div class="sobre-disco">
-                    <p>lalalallalal</p>
+                    <div id="disco" class="img-disco">
+
+                    </div>
+                    <div id="desc-disco" class="desc-disco">
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
-    <div class="section votos">
+    <div class="section votos" id="votos">
         <div class="container">
             <div class="titulo">
-                <h1>Vote</h1>
+                <h1>Votação</h1>
+            </div>
+            <div class="container-votos">
+                <div class="descricao-voto">
+                    <span class="desc-voto">O site tem a funcionalidade de votação, para medir o gosto do fandom e rankear as músicas da banda de acordo com o gosto de quem acessa. Para isso você tem que se cadastrar ou logar na sua conta!!</span>
+                    <div class="banner-voto seta">
+                        <img src="img/seta-para-cima.png">
+                    </div>
+                </div>
+                <div class="banner-voto">
+                    <img src="../public/img/voto.png" alt="" srcset="">
+                </div>
+                <div class="descricao-votos">
+                    <span>Não deixe sua música favorita cair no ranking hein;)</span>
+                </div>
             </div>
         </div>
     </div>
-    <div class="section votos">
-        <div class="container">
+    <div class="section sobre" id="sobre">
+        <div class="container-sobre">
             <div class="titulo">
                 <h1>Sobre Mim</h1>
             </div>
+            <div class="sobre-wrapper">
+                <div class="banner-sobre">
+                </div>
+                <div class="descricao-sobre">
+                    <span> Olá, meu nome é Kevin, sou um guitarrista iniciante e um grande fã de Red Hot Chili Peppers. Essa banda mudou a minha vida simplesmente por fazerem as músicas que gostam, me motivando a fazer a mesma coisa. Por esse motivo eu decidi também desenvolver esse site para unir fãs da banda e fazer brincadeiras com o fandom usando a votação de músicas.
+                    <br>
+                    <br>
+                    A banda foi e ainda é muito importante para mim, tanto na questão da musicalidade, como vendo as histórias dos integrantes que me ensinaram muito sobre resiliência e força de vontade para vencer todas as péssimas coisas que aconteceram durante o caminho, que no fim levou todos para um lugar maravilhoso. Obrigado por acessar meu site ;) </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="link-footer">
+            <a href="#home">Voltar para o Inicio</a>
+            <a href="cadastro.html">Ir para o Cadastro</a>
+            <a href="login.html">Ir para o Login</a>
+            <a href="#disco">Ver Discografia da banda</a>
+        </div>
+        <div class="text-footer">
+            <span>✱ Obrigado por acessar S2 ✱</span>
         </div>
     </div>
 </body>
@@ -394,7 +466,108 @@
 
 
 <script>
-    function descricao() {
+
+    var listaDescricao = [
+        {
+            nome: 'THE RED HOT CHILI PEPPERS',
+            descricao: `Lançado em 10 de agosto de 1984, o auto-intitulado álbum foi o primeiro a ser lançado, reunindo os membros fundadores da banda, com exceção de Jack Irons e Hillel Slovak. Com o ausência de dois membors, o Red Hot Chili Peppers decidiu convidar 2 membros para auxiliar na produção, sendo um deles o guitarrista Jack Sherman. O álbum conta com faixas experimentais e mostra pela primeira vez a mistura de Hip-Hop, Funk e Jazz do Red Hot Chili Peppers. O processo de gravação desse álbum foi dificil pois houveram muitos conflitos entre a produção e a banda que no fim preferiram as demos gravadas antes do que as músicas finalizadas. 
+            `,
+            capa: ' <img src="img/theredhot.jpg">',
+            favoritas: `<div>Musicas favoritas do criador do site: True Man Don't Kill Coyotese Mommy Where's Daddy. </div>`
+        },
+        {
+            nome: 'FREAKY STYLEY',
+            descricao: `Lançado em 16 de agosto de 1985, após as vendas do último álbum terem sido abaixo do esperado, a banda decidiu trazer o "Tio do Funk" George Clinton para a produção do álbum. Além disso, nessa época também houve o retorno de Hillel Slovak para as guitarras da banda e assim ocorreu o período de gravação no sitio do próprio produtor. Freaky Styley foi um dos álbuns cruciais para a popularização da banda que, dessa vez, havia conseguido expressar suas ideias e suas músicas como queriam. `,
+            capa: '<img src="img/51JiRzjRiXL._AC_SX466_.jpg">',
+            favoritas: `<div>Musicas favoritas do criador do site: Jungle Man, American Ghost Dance e Yertle The Turtle. </div>`
+        },
+        {
+            nome: 'THE UPLIFT MORFO PARTY PLAN',
+            descricao: 'Lançado em 29 de setembro de 1987, The Uplift Morfo Party Plan foi o primeiro e único álbum que finalmente teve a formação fundadora da banda completa na gravação. Anthony Kiedis, Flea,Hillel Slovak e Jack Irons finalmente se reuniram para compor um dos álbuns mais importantes da carreira do Red Hot Chili Peppers. As novas ideias propostas pelo produtor Michael Beinhorn para explorar mais a musicalidade da banda deram muitos resultados, gerando uma origem para o que o Red Hot Chili Peppers é hoje. Apesar de um processo de gravação difícil com as recaidas de Anthony levando-o a buscas incansáveis por drogas e atrapalhando o processo de criação e gravação do álbum, o disco foi um sucesso que levou o Red Hot Chili Peppers no top 200 da bilboard pela primeira vez, rendendo disco de ouro e uma popularização pela Europa e America Latina. Infelizmente poucas semanas após a turnê de promoção do álbum houve a morte de Hillel Slovak e a separação de Jack Irons da banda, que só teve um pequeno momento com seus membros originais. ',
+            capa: '<img src="img/morfopartyplan.jpg">',
+            favoritas: `<div>Musicas favoritas do criador do site: Me and My Friends e Behind the Sun. </div>`
+        },
+        {
+            nome: "MOTHER'S MILK",
+            descricao: 'Lançado em 16 de agosto de 1989, Mothers Milk foi um grande sucesso comercial da banda, que pela primeira vez teve a formação mais emblemática e a atual da banda, sendo composta de Anthony Kiedis, Flea, John Frusciante e Chad Smith. A adição dos novos membros trouxe um novo gás para a banda, que teve acréscimos na sua sonoridade, principalmente por conta do guitarrista John Frusciante que tinha influências muito fortes do próprio Hillel Slovak e de Jimi Hendrix. A conexão de John com Flea foi automática e o resto da banda teve uma sinergia gigante, o que gerou um álbum mais sólido e focado mais na melódia ao invés do ritmo. Essas junções geraram o álbum de maior sucesso até o momento de seu lançamento, rendendo partipação em festivais renomados como o Pinkpop.',
+            capa: '<img src="img/mothersjpg.jpg">',
+            favoritas: `<div>Musicas favoritas do criador do site: Higher Ground, Johnny Kick A Hole in The Sky, Knock Me Down, Punk Rock Classic, Nobody Weird Like Me, Good Time Boys. </div>`
+        },
+        {
+            nome: 'BLOOD SUGAR SEX MAGIK',
+            descricao: 'Lançado no dia 24 de setembro de 1991, o álbum divisor de águas, considerado um dos melhores álbuns de todos os tempos, o Blood Sugar Sex Magik foi o lançamento que deu maior popularidade para a banda, contando com a participação de Rick Rubin pela primeira vez na produção do disco, levando a banda a explorar sonoridades com riffs emblemáticos misturando ainda mais o Rock com todas as outras junções que o RHCP já tinha. A gravação do álbum foi a melhor até o momento, onde Rubin gerou um clima agradável e receptivo para as ideias dos músicos, além de todos ficarem agrupados na "The Mansion", mansão em Los Angeles que era usada para gravação de discos e onde foi gravado o documentario "Funky Monks", que mostra o processo de gravação do disco. BSSM continuou a crescente de sucesso do RHCP, porém com esse sucesso houve a precoce primeira saída de John Frusciante da banda, que não aguentou o preço da fama. Além disso, a época de 91 foi uma complicação na questão das drogas com os membros do grupo, principalmente Anthony, que retrata sua situação em Under The Bridge, música mais famosa da banda até hoje.',
+            capa: '<img src="img/bssm.jpg">',
+            favoritas: `<div>Musicas favoritas do criador do site: Todas. </div>`
+        },
+        {
+            nome: 'ONE HOT MINUTE',
+            descricao: 'Lançado em 12 de setembro de 1995, One Hot Minute é um dos dilemas dos fãs da banda, muitos gostam e muitos, assim como John Frusciante, fingem não existir. One Hot Minute foi um fracasso comercial, embora tenha produzido três singles e alcançado o quarto lugar na parada da Billboard. Ele vendeu menos da metade que Blood Sugar Sex Magik e recebeu bem menos atenção da crítica. Dave Navarro, guitarrista que substituiu John Frusciante, que admitiu que não gostava de funk rock, acabou demitido da banda devido a diferenças criativas em 1997 O álbum retrata muitas das tristezas enfrentadas pela banda na década de 90, a perda de Kurt Cobain, a depressão e a preocupação com John Frusciante que se afastou e começou a se afundar nas drogas, além do prório vicio de Kiedis que mais uma vez teve recaídas. Talvez por conta desse ambiente sombrio eset seja um dos álbuns que os fãs menos gostam.',
+            capa: '<img src="img/hotminute.jpg">',
+            favoritas: `<div>Musicas favoritas do criador do site: Warped, Aeroplane e My Friends. </div>`
+        },
+        {
+            nome: 'CALIFORNICATION',
+            descricao: 'Lançado em 8 de Junho de 1999, após uma longa reabilitação de Anthony e John, que retornou as guitarras da banda, Californication consolida a banda como uma das maiores de todos os tempos, recuperando todo o estilo que já tinham antes e adicionando viagens espirituais e epifanias em sua liricidade. Nesse ponto da carreira dos peppers foi onde a banda se tornou mais unida, como uma familia de verdade, o que ajudou em todo o processo de produção, gravação e na turnê da banda, que participou de muitos festivais enormes, como o Woodstock. Californication voltou a ser um sucesso de vendas da banda, que gerou uma revolução nos videoclipes dos aos 2000 a partir do clipe de videogame da faixa-titulo.',
+            capa: '<img src="img/californication.jpg">',
+            favoritas: `<div>Musicas favoritas do criador do site: Around the World, Otherside, Californication, Purple Stain, Parallel Universe, Quixoticelixer(b-side). </div>`
+        },
+        {
+            nome: 'BY THE WAY',
+            descricao: 'Lançado em 9 de julho de 2002, By The Way é um dos álbuns que mais mudou a sonoridade da banda, inserindo teclados e mais efeitos de guitarras para as músicas que fizeram o álbum ser mais eclético e explorado muiscalmente. By The Way contém alguns dos maiores hits da banda e foi mais um successo comercial da banda. Nessa época também houveram muitos shows importantes para a banda, o principal deles sendo o "Slane Castle", um dos melhores e maiores shows da banda. Os temas do álbum giram em torno da espiritualidade, traumas com as drogas e homenagens a pessoas que faleceram como em Venice Queen e Dosed, que homenageia Hillel Slovak com lindos acordes e riffs de guitarra. By The Way foi muito aguardado pelos fãs e correspondeu as expectativas, sendo considerado um dos melhores álbuns da banda pelos próprios integrantes.',
+            capa: '<img src="img/bytheway.jpg">',
+            favoritas: `<div>Musicas favoritas do criador do site: Cant Stop, By The Way, Dosed, This Is The Place, Venice Queen, Universally Speaking, I Could Die For you e Minor Thing. </div>`
+        },
+        {
+            nome: 'STADIUM ARCADIUM',
+            descricao: 'Lançado em maio de 2006, Stadium Arcadium foi o ápice musical da banda, misturando tudo que tinham feito até agora e mais novas coisas, o álbum duplo juntou muitas influências e ideias que trouxeram muitos hits e premios para a banda. A turnê do Stadium Arcadium rendeu muitos shows emblemáticos com solos de guitarras muito mais elaborados, como se a banda estivesse usando tudo o que aprenderam durante seus anos de carreira. No fim da turnê foi anunciada a saída de John Frusciante pela segunda vez, que queria explorar novos projetos e dar um tempo da rotina de turnês de artista.',
+            capa: '<img src="img/stadium.jpg">',
+            favoritas: `<div>Musicas favoritas do criador do site: Dani California, Snow(Hey Oh), Charlie, Tell Me Baby, Wet Sand, Hump de Bump, Turn It again e Slow Cheetah. </div>`
+        }
+        ,
+        {
+            nome: "I'M WITH YOU",
+            descricao: "Lançado em 26 de agosto de 2011, I'm With You foi o primeiro álbum da banda com Josh Klinghoffer na guitarra da banda. O álbum tem uma sonoridade seguida de seu antecessor porém com mudanças nos timbres de guitarra e nos efeitos aplicados. Além disso houve um acréscimo ainda maior do piano e do baixo por parte do Flea, que na época havia se formado na faculdade de música. Na época de sua produção e lançamento foi também a época em que o Red Hot Chili Peppers foi intriduzido no Hall Of Fame do Rock, gerando uma apresentação emblemática juntamente de artistas como Slash, Billy Joe e outros artistas. ",
+            capa: '<img src="img/imwithyou.jpg">',
+            favoritas: `<div>Musicas favoritas do criador do site: Monarchy Of Roses, The Adventures of Raindance Maggie, Brendan's Death Song, Factory of Faith, Annie Wants a Baby, Did I Let You Know, Goodbye Hooray, Look Around e Happiness Loves Company. </div>`
+        },
+        {
+            nome: 'THE GETAWAY',
+            descricao: 'Lançado 17 de junho de 2016, The Getaway foi o primeiro álbum da banda desde 1991 que não foi produzido por Rick Rubin por conta de conflitos que Josh teve com o produtor. The Getaway conta com mais recursos modernos como o uso de bateria eletrônica em algmas musicas. o álbum tem uma atmosfera um pouco mais sombria do que os anteriores, mas não como o One Hot Minute. o lançamento do álbum atingiu bons números e a turnê durou por muito tempo, tendo seu último show em festivais aqui no Brasil, em 2019. No mesmo ano houve o comunicado de demissão de Josh Klinghoffer para o retorno de John Frusciante para a banda. Josh produziu uma de suas melhores músicas nesse álbum. explorando muitos instrumentos além da guitarra na produção das músicas.  ',
+            capa: '<img src="img/The_Getaway.jpg">',
+            favoritas: `<div>Musicas favoritas do criador do site: Dark Necessities, Goodbye Angels, Sick Love, Go Robot e We Turn Red. </div>`
+        },
+        {
+            nome: 'UNLIMITED LOVE',
+            descricao: 'Lançado em 1º de abril de 2022, Unlimited Love trouxe o retorno de John Frusciante e da banda após a pandemia e a ausência dos shows. Unlimited Love foi um marco e uma declaração de amor do RHCP para eles mesmos e para seus fãs. O álbum traz de volta a magia e a mística que envolvem esses 4 membros, além da volta do renomado produtor Rick Rubin para ajudar a banda. Unlimited Love conta com faixas aconchegantes e que remetem a muitas fases da própria banda. Porém, sua maior crítica é que o álbum funciona como um grande ato de saudosismo, mas pouco inovador. Apesar disso, muitos fãs gostaram do álbun e a critica deu notas médias superiores a 7/10. Gostando ou não, Unlimited Love marcou um renascimento da banda, tanto para eles mesmos, como para nós, fãs; ',
+            capa: '<img src="img/unlimitedlove.png">',
+            favoritas: `<div>Musicas favoritas do criador do site: Todas menos Not The One. </div>`
+        },
+        {
+            nome: 'RETURN OF THE DREAM CANTEEN',
+            descricao: 'Lançado em 14 de outubro de 2022, o irmão gêmeo do Unlimited Love, o Return Of The Dream Canteen foi o segundo álbum da banda lançado após a volta de John Frusciante. Na euforia do retorno de John as guitarras, a banda prodsuziu muito material para um álbum só, o que levou a produção do segundo álbum, porém diferente do primeiro. Explorando ainda mais a criatividade e bebendo da fonte do passado, o RHCP juntou o que tinham de melhor com novos detalhes e ideias mais "malucas" para a produção das música. Agora mais velhos, o RHCP reflete muito sobre a modernidade e ainda sobre as relações amorosas de Anthony sem perder a felicidade de sempre. O álbum é um grande divisor dos fãs, mas rendeu belas músicas para a vasta discografia do Red Hot Chili Peppers.',
+            capa: '<img src="img/dreamcanteen.jpg">',
+            favoritas: `<div>Musicas favoritas do criador do site: Fake as Fu@k, Eddie, Peace And Love, Bella, Afterlife e Carry Me Home. </div>`
+        },
+
+    ]
+
+    function descricao(idAlbum) {
+        var album = idAlbum.replace('album', '');
+        var capaDisco = document.getElementById('disco');
+        var tituloDisco = document.getElementById('tituloDisco');
+        var descricaoDisco = document.getElementById('desc-disco');
+
+        console.log(album)
+
+        console.log(listaDescricao[album - 1].capa)
+
+        capaDisco.innerHTML = listaDescricao[album - 1].capa;
+        tituloDisco.innerHTML = listaDescricao[album - 1].nome;
+        descricaoDisco.innerHTML = listaDescricao[album - 1].descricao;
+        descricaoDisco.innerHTML += listaDescricao[album - 1].favoritas;
+
+
+
 
     }
 </script>
