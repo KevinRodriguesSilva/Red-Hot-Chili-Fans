@@ -60,8 +60,46 @@ function buscarKPI(req, res) {
         });
 }
 
+function buscarTotal(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    medidaModel.buscarTotal(idUsuario)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!")
+                }
+            }
+        ).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar as KPIS.", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+function buscarRank(req, res) {
+    medidaModel.buscarRank()
+    .then(
+        function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }
+    ).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as KPIS.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
-    buscarKPI
+    buscarKPI,
+    buscarTotal,
+    buscarRank
 }

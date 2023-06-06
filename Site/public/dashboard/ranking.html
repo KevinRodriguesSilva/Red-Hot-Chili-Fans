@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="../js/animacao.js"></script>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/votos.css">
+    <link rel="stylesheet" href="../css/ranking.css">
+    <script src="../js/funcoes.js"></script>
+    <title>Ranking </title>
+</head>
+
+<body>
+    <div class="sidebar" id="sidebar">
+        <div class="menu">
+            <div class="menu-button ativada" id="menu" onclick="movimentar()">
+                <div class="menu-traco"></div>
+                <div class="menu-traco"></div>
+                <div class="menu-traco"></div>
+            </div>
+            <div class="menu-button desativada" id="menu-desativado" onclick="movimentar()">
+                <div class="menu-traco"></div>
+                <div class="menu-traco"></div>
+                <div class="menu-traco"></div>
+            </div>
+        </div>
+        <div class="conteudo">
+            <a id="link1" class="link" href="dash.html">Dashboard</a>
+            <a id="link2" class="link" href="votar.html">Votar</a>
+            <a id="link3" onclick="limparSessao()" class="link" href="#">Sair</a>
+            <!-- <a id="link1" href="dashboard.html">Dashboard</a> -->
+        </div>
+    </div>
+    <div id="containerVotos" class="container-votos">
+        <h1> Ranking das músicas </h1>
+        <div class="container-ranking">
+            <div class="rhcp-infinite">
+                <img src="../img/asterisco-vermelho.png" alt="" srcset="">
+            </div>
+            <div class="colocacao">
+                <div class="banner-medalha">
+
+                    <img src="../img/medalha-de-ouro (1).png"> 
+                </div>
+                <div class="banner-medalha">
+
+                    <img src="../img/medalha-de-prata.png"> 
+                </div>
+                <div class="banner-medalha">
+
+                    <img src="../img/medalha-de-bronze (1).png"> 
+                </div>
+                
+            </div>
+            <div class="tabela-musica">
+                <div id="divPai"></div>
+                <div class="desc-ranking">
+                    <p>
+                        Vote nas suas músicas favoritas para que elas apareçam no top 5!!
+
+                    </p>
+                </div>
+            </div>
+            <div class="rhcp-infinite rhcp2">
+                <img src="../img/asterisco-vermelho.png" alt="" srcset="">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+<script>
+
+    window.onload = obterRank();
+
+    console.log(sessionStorage.ID_USUARIO);
+
+
+
+    function obterRank() {
+        var ranking = [];
+
+
+        fetch(`/medidas/ranking`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(response.json)
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`); 7
+
+                    ranking = resposta;
+                    return rankear(ranking);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+    function rankear(rank) {
+
+        rank.forEach(musica => {
+            divPai.innerHTML += `
+            <div class="musicas">${musica.nomeMusica} - ${musica.votos} votos</div>`
+            console.log(musica.nome)
+        });
+    }
+
+</script>

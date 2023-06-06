@@ -1,0 +1,60 @@
+.container-ranking{
+    display: flex;
+    width: 100%;
+    height: 90vh;
+    justify-content: center;
+    gap: 10px;
+}
+.colocacao{
+    width:5%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.banner-medalha{
+    width:8%;
+    height: 8%;
+    display: flex;
+}
+
+.tabela-musica{
+    width: 32%;
+    font-size: 25px;
+    justify-content: start;
+}
+
+.rhcp-infinite{
+    width: 20%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    animation: infinita 3s linear infinite;
+    
+}
+
+.rhcp2{
+    width:25%;
+}
+
+
+@keyframes infinita {
+    FROM{
+
+        transform: rotate(0deg);
+    }
+
+    TO{
+        transform: rotate(360deg);
+    }
+
+}
+
+#divPai{
+    overflow: hidden;
+    padding: 0;
+    gap: 0;
+    justify-content: flex-start;
+}

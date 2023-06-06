@@ -193,8 +193,8 @@ body{
 }
 
 .kpi{
-    width:60%;
-    height:40%;
+    width:100%;
+    height:20%;
     background-color:  rgb(139, 21, 21);
     display: flex;
     flex-direction: column;
@@ -205,12 +205,12 @@ body{
 }
 
 .resultado-kpi{
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .graph{
     width:100%;
-    height:60%;
+    height:80%;
     display: flex;
     justify-content: center;
 }

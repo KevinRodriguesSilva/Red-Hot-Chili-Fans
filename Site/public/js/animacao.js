@@ -9,7 +9,7 @@ function expandir(){
         sidebar.classList.add('active')
     }
 
-    for (var i = 1; i < 3; i++) {
+    for (var i = 1; i <= 3; i++) {
         var link = document.getElementById(`link${i}`);
         link.classList.add('link-ativado')
     }
@@ -39,7 +39,7 @@ function minimizar(){
         menu.classList.replace('desativada', 'ativada')
     }
 
-    for (var i = 1; i < 3; i++) {
+    for (var i = 1; i <= 3; i++) {
         var link = document.getElementById(`link${i}`);
         link.classList.remove('link-ativado')
     }

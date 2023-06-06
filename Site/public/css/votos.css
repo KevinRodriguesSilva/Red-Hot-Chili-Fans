@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+.container_votacao{
+    width:100%;
+    height: 100vh;
+    display: flex;
+}
+
 .container-votos{
     width: 100%;
     height: 100vh;
@@ -13,17 +19,42 @@
 }
 
 .tabela-musica{
-    width: 50%;
-    height: 100%;
+    width: 100%;
+    height: 90%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    gap: 10vh;
+    text-align: center;
+}
+
+
+.tabela-musica p{
+    font-weight: bold;
+    font-size: 30px;
 }
 
 #divPai{
+    height:80%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    overflow-y: auto;
+    gap: 15px;
+    padding-top: 550px ;
+}
+
+.musicas{
+    width:90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.musicas span{
+    font-size: 20px;
 }
 
 .btn_votar{
@@ -33,3 +64,77 @@
     color: white;
     border-radius: 10px;
 }
+
+.musicas{
+    border: 2px solid white;
+    padding: 5px;
+}
+
+#divPai::-webkit-scrollbar {
+    width: 8px;               /* width of the entire scrollbar */
+}
+  
+  #divPai::-webkit-scrollbar-track {
+    background: transparent       /* color of the tracking area */
+}
+  
+#divPai::-webkit-scrollbar-thumb {
+    background-color: darkred;   
+    border-radius: 10px;       /* roundness of the scroll thumb */
+    border: 3px solid darkred;  
+}
+
+.rhcp-infinite{
+    width: 40%;
+    height: 5%;
+}
+
+.rhcp-infinite img{
+}
+
+.alerta_erro{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .card_erro {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(105, 4, 4, 0.952);
+    color: white;
+    width: 30%;
+    position: fixed;
+    border-radius: 10px;
+    padding: 15px;
+    z-index: 1;
+  }
+  
+  .card_erro #mensagem_erro{
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  .card_erro #mensagem_erro button{
+    width:70px;
+    height: 40px;
+    font-size: 20px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+  }
+
+  .card_erro #mensagem_erro button:hover{
+    cursor: pointer;
+    background-color: rgb(194, 194, 194);
+    transform: scale(1.1);
+    transition: 0.3s;
+    font-weight: bold;
+  }

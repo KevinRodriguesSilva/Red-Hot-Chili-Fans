@@ -15,4 +15,12 @@ router.get("/kpi/:idUsuario", function (req, res) {
     medidaController.buscarKPI(req, res);
 });
 
+router.get("/total/:idUsuario", function (req, res) {
+    medidaController.buscarTotal(req, res);
+});
+
+router.get("/ranking", function (req, res) {
+    medidaController.buscarRank(req, res);
+});
+
 module.exports = router;

@@ -65,7 +65,38 @@ function buscarKPI(idUsuario){
     var instrucaoSql = '';
 
     if (process.env.AMBIENTE_PROCESSO == 'desenvolvimento'){
-        instrucaoSql = 'SELECT nome'
+        instrucaoSql = `SELECT nome as nomeMusica, count(*) AS votos FROM voto JOIN musica ON fkMusica = idMusica  WHERE fkUsuario = ${idUsuario} GROUP BY nomeMusica ORDER BY votos DESC LIMIT 1;`
+
+        console.log("Executando a instrução SQL: \n" + instrucaoSql);
+        return database.executar(instrucaoSql);
+    }else {
+        console.log('erro no ambiente')
+        return;
+    }
+}
+
+function buscarTotal(idUsuario){
+    var instrucaoSql = '';
+
+    if (process.env.AMBIENTE_PROCESSO == 'desenvolvimento'){
+        instrucaoSql = `SELECT COUNT(*) as votos FROM voto WHERE fkUsuario = ${idUsuario};`
+
+        console.log("Executando a instrução SQL: \n" + instrucaoSql);
+        return database.executar(instrucaoSql);
+    }else {
+        console.log('erro no ambiente')
+        return;
+    }
+}
+
+function buscarRank(){
+    var instrucaoSql = '';
+
+    if (process.env.AMBIENTE_PROCESSO == 'desenvolvimento'){
+        instrucaoSql = `SELECT nome as nomeMusica, COUNT(*) AS votos FROM voto JOIN musica ON fkMusica = idMusica GROUP BY nomeMusica ORDER BY votos DESC LIMIT 5; `
+
+        console.log("Executando a instrução SQL: \n" + instrucaoSql);
+        return database.executar(instrucaoSql);
     }else {
         console.log('erro no ambiente')
         return;
@@ -76,5 +107,7 @@ function buscarKPI(idUsuario){
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
-    buscarKPI
+    buscarKPI,
+    buscarTotal,
+    buscarRank
 }

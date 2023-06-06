@@ -8,7 +8,9 @@
 
     <script src="../js/animacao.js"></script>
     <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/ranking.css">
     <link rel="stylesheet" href="../css/votos.css">
+    <script src="../js/funcoes.js"></script>
     <title>Votar </title>
 </head>
 
@@ -27,17 +29,33 @@
             </div>
         </div>
         <div class="conteudo">
-            <a id="link1" class="link" href="dashboard.html">Votar</a>
-            <a id="link2" class="link" href="dashboard.html">Resultados</a>
+            <a id="link1" class="link" href="dash.html">Dashboard</a>
+            <a id="link2" class="link" href="ranking.html">Ranking</a>
+            <a id="link3" onclick="limparSessao()" class="link" href="#">Sair</a>
             <!-- <a id="link1" href="dashboard.html">Dashboard</a> -->
         </div>
     </div>
-    <div id="containerVotos" class="container-votos">
-        <h1> Vote nas músicas da lista!!</h1>
-        <div class="tabela-musica">
-            <div id="divPai"></div>
+    <div class="container_votacao">
+        <!-- <div class="rhcp-infinite">
+            <img src="../img/asterisco-vermelho.png" alt="" srcset="">
+        </div> -->
+        <div id="containerVotos" class="container-votos">
+            <h1> Vote nas músicas da lista!!</h1>
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <div id="mensagem_erro"></div>
+                </div>
+            </div>
+            <div class="tabela-musica">
+
+                <div id="divPai"></div>
+            </div>
         </div>
+        <!-- <div class="rhcp-infinite">
+            <img src="../img/asterisco-vermelho.png" alt="" srcset="">
+        </div> -->
     </div>
+
 </body>
 
 </html>
@@ -79,8 +97,14 @@
 
         listaMusicaParam.forEach(musica => {
             divPai.innerHTML += `
-            <span>${musica.nome}</span>
-            <button onclick="votar(${musica.idMusica}, '${musica.nome}', ${musica.fkAlbum})" class="btn_votar"> Votar </button>`
+            <div class="musicas">
+            <span>
+                ${musica.nome}
+            </span>
+            <button onclick="votar(${musica.idMusica}, '${musica.nome}', ${musica.fkAlbum})" class="btn_votar"> Votar </button>
+            </div>
+            `
+
             console.log(musica.idMusica)
             console.log(musica.nome)
             console.log(musica.fkAlbum);
@@ -123,6 +147,11 @@
 
             if (resposta.ok) {
                 console.log('funcionou')
+                cardErro.style.display = "block";
+                mensagem_erro.display = 'flex';
+
+                mensagem_erro.innerHTML = '<span> Voto realizado com sucesso!</span> <button onclick="sumirMensagem()"> Fechar </button>';
+
             } else {
                 console.log('erro')
             }
@@ -131,6 +160,10 @@
         });
 
         return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
     }
 
 </script>
